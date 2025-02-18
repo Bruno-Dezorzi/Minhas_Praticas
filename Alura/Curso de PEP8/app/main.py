@@ -18,5 +18,10 @@ app.include_router(router=routers_produtos.router)
 
 @app.get("/")
 def home() -> Dict[str, str]:
+    """
+    Rota de boas-vindas.
+    Returns:
+            Dict[str, str]: Um dicionário com a mensagem de boas-vindas.
+    """
     global MENSAGEM_HOME
     return {"mensagem": MENSAGEM_HOME}
