@@ -131,7 +131,7 @@ def fetch_api_data_for_update(
     ou formatação de dados, como exceções relacionadas à API ou à conversão para DataFrame.
     """
 
-    url = f"https://api.mercadoe.com/boost/v1/{tabela}"
+    url = f"XX{tabela}"
 
     df_geral = pd.DataFrame()
     print(f"Começando a tabela {tabela}")
@@ -305,7 +305,7 @@ def sync_data_with_api_by_timekey(
     A função assume que a API retorna dados no formato esperado. Caso contrário, pode ocorrer falha na 
     conversão dos dados para DataFrame ou na inserção no banco.
     """
-    url = f"https://api.mercadoe.com/boost/v1/{tabela}"
+    url = f"XX{tabela}"
     df_geral = pd.DataFrame()
     print(f"Começando a tabela {tabela} às {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     with engine.connect() as conn:
