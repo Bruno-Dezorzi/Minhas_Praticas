@@ -1,0 +1,338 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciclo de Krebs - Tabela Completa</title>
+    <style>
+        @media print {
+            body { margin: 0; }
+            .no-print { display: none; }
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #2c3e50;
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .header .icon {
+            font-size: 1.2em;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            font-size: 14px;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 15px 12px;
+            text-align: left;
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ecf0f1;
+            vertical-align: top;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #e3f2fd;
+            transition: background-color 0.3s ease;
+        }
+        
+        .etapa {
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 16px;
+            text-align: center;
+            background: linear-gradient(135deg, #ffe6e6, #ffcccc);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+        
+        .substrato {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .enzima {
+            font-style: italic;
+            color: #8e44ad;
+            font-weight: 500;
+        }
+        
+        .produto {
+            font-weight: 600;
+            color: #27ae60;
+        }
+        
+        .explicacao {
+            color: #34495e;
+            line-height: 1.5;
+        }
+        
+        .carbon-count {
+            background: #f39c12;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            margin: 0 2px;
+        }
+        
+        .products-highlight {
+            background: #e8f5e8;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ecf0f1;
+            color: #7f8c8d;
+            font-size: 12px;
+        }
+        
+        .summary {
+            background: linear-gradient(135deg, #e8f4f8, #d6eaf8);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid #3498db;
+        }
+        
+        .summary h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        
+        .balance {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .balance-item {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .nadh { color: #e74c3c; }
+        .fadh2 { color: #f39c12; }
+        .gtp { color: #27ae60; }
+        .co2 { color: #95a5a6; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><span class="icon">🌀</span>Ciclo de Krebs<span class="icon">🌀</span></h1>
+            <div class="subtitle">As 8 Etapas Detalhadas do Ciclo do Ácido Cítrico</div>
+        </div>
+        
+        <div class="summary">
+            <h3>Resumo do Balanço Energético</h3>
+            <p>Por volta completa do ciclo de Krebs (1 acetil-CoA):</p>
+            <div class="balance">
+                <div class="balance-item nadh">3 NADH</div>
+                <div class="balance-item fadh2">1 FADH₂</div>
+                <div class="balance-item gtp">1 GTP (ATP)</div>
+                <div class="balance-item co2">2 CO₂</div>
+            </div>
+        </div>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Etapa</th>
+                        <th>Substrato</th>
+                        <th>Enzima</th>
+                        <th>Produto</th>
+                        <th>Explicação Didática</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><div class="etapa">1</div></td>
+                        <td class="substrato">Acetil-CoA + Oxaloacetato</td>
+                        <td class="enzima">Citrato sintase</td>
+                        <td class="produto">Citrato</td>
+                        <td class="explicacao">O acetil-CoA <span class="carbon-count">2C</span> se junta ao oxaloacetato <span class="carbon-count">4C</span>, formando citrato <span class="carbon-count">6C</span>.</td>
+                    </tr>
+                    <tr>
+                        <td><div class="etapa">2</div></td>
+                        <td class="substrato">Citrato</td>
+                        <td class="enzima">Aconitase</td>
+                        <td class="produto">Isocitrato</td>
+                        <td class="explicacao">O citrato é reestruturado (isomerizado) para virar isocitrato <span class="carbon-count">6C</span>.</td>
+                    </tr>
+                    <tr>
+                        <td><div class="etapa">3</div></td>
+                        <td class="substrato">Isocitrato</td>
+                        <td class="enzima">Isocitrato desidrogenase</td>
+                        <td class="produto">α-Cetoglutarato</td>
+                        <td class="explicacao">O isocitrato é oxidado, produz <span class="products-highlight nadh">NADH</span> e <span class="products-highlight co2">CO₂</span> é liberado <span class="carbon-count">6C → 5C</span>.</td>
+                    </tr>
+                    <tr>
+                        <td><div class="etapa">4</div></td>
+                        <td class="substrato">α-Cetoglutarato</td>
+                        <td class="enzima">α-Cetoglutarato desidrogenase</td>
+                        <td class="produto">Succinil-CoA</td>
+                        <td class="explicacao">Mais uma oxidação, com geração de <span class="products-highlight nadh">NADH</span> e <span class="products-highlight co2">CO₂</span> <span class="carbon-count">5C → 4C</span>, formando succinil-CoA.</td>
+                    </tr>
+                    <tr>
+                        <td><div class="etapa">5</div></td>
+                        <td class="substrato">Succinil-CoA</td>
+                        <td class="enzima">Succinil-CoA sintetase</td>
+                        <td class="produto">Succinato</td>
+                        <td class="explicacao">A ligação de alta energia do succinil-CoA é quebrada para gerar <span class="products-highlight gtp">GTP</span> (ou ATP).</td>
+                    </tr>
+                    <tr>
+                        <td><div class="etapa">6</div></td>
+                        <td class="substrato">Succinato</td>
+                        <td class="enzima">Succinato desidrogenase</td>
+                        <td class="produto">Fumarato</td>
+                        <td class="explicacao">O succinato é oxidado em fumarato, gerando <span class="products-highlight fadh2">FADH₂</span>.</td>
+                    </tr>
+                    <tr>
+                        <td><div class="etapa">7</div></td>
+                        <td class="substrato">Fumarato</td>
+                        <td class="enzima">Fumarase</td>
+                        <td class="produto">Malato</td>
+                        <td class="explicacao">A água é adicionada ao fumarato, formando malato (hidratação).</td>
+                    </tr>
+                    <tr>
+                        <td><div class="etapa">8</div></td>
+                        <td class="substrato">Malato</td>
+                        <td class="enzima">Malato desidrogenase</td>
+                        <td class="produto">Oxaloacetato</td>
+                        <td class="explicacao">O malato é oxidado, gerando <span class="products-highlight nadh">NADH</span>, e o oxaloacetato é regenerado.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <button class="download-btn no-print" onclick="downloadPDF()">
+            📥 Baixar Tabela em PDF
+        </button>
+        
+        <div class="footer">
+            <p>Ciclo de Krebs - Também conhecido como Ciclo do Ácido Cítrico ou Ciclo TCA</p>
+            <p>Local: Matriz mitocondrial | Função: Oxidação completa do acetil-CoA</p>
+        </div>
+    </div>
+    
+    <script>
+        function downloadPDF() {
+            // Esconder o botão de download antes de imprimir
+            const button = document.querySelector('.download-btn');
+            button.style.display = 'none';
+            
+            // Configurar a página para impressão
+            window.print();
+            
+            // Mostrar o botão novamente após a impressão
+            setTimeout(() => {
+                button.style.display = 'block';
+            }, 1000);
+        }
+        
+        // Adicionar funcionalidade de impressão com Ctrl+P
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'p') {
+                e.preventDefault();
+                downloadPDF();
+            }
+        });
+    </script>
+</body>
+</html>
