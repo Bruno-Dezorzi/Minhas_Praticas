@@ -14,7 +14,7 @@ logging.basicConfig(
     datefmt="%Y-%m-%d %H:%M:%S"
 )
 
-logger = logging.getLogger(_name_)  # Criar um logger
+logger = logging.getLogger(__name__)  # Criar um logger
 
 
 def processar_grupos(grupo, tabelas, ENGINE, HEADERS, PAYLOAD, chunked=False):
@@ -129,5 +129,5 @@ def main():
     logger.info("EXECUCAO DE SCRIPT FINALIZADA")
 
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     main()

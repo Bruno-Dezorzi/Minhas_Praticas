@@ -1,0 +1,23 @@
+nome: "Matheus"
+idade: 30
+
+objeto:
+  versao: 2
+  arquivo: "test.txt"
+
+nulo: ~
+nulo2: null
+
+bool: true
+
+lista: [1,2,3,"Bruno Dezorzi"]
+
+lista2:
+  - -1
+  - 2
+  - 3.14
+
+dicionario: {'Bruno':20}
+dicionario2:
+  at: 2
+  ay: 5
