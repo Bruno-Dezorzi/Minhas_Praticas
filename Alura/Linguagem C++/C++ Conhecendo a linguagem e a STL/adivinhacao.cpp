@@ -72,7 +72,7 @@ int main()
 
     bem_vindo();
 
-    int numero_secreto = gerar_numero_aleatorio();
+    const int numero_secreto = gerar_numero_aleatorio();
 
     adivinhacao(numero_secreto);
 }

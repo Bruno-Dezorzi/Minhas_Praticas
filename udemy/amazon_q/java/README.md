@@ -1,1 +1,0 @@
-# q_dev_resources
